@@ -18,8 +18,8 @@ if st.sidebar.button("Submit"):
             # Convert response to a dictionary
             data = json.loads(response.text)
 
-            # Display vulnerability details
-            if "result" in data:
+            # Check if data has the expected structure
+            if "result" in data and "CVE_Items" in data["result"] and data["result"]["CVE_Items"]:
                 result = data["result"]["CVE_Items"][0]["impact"]["baseMetricV2"]
                 title = data["result"]["CVE_Items"][0]["cve"]["CVE_data_meta"]["ID"]
                 cvss_score = result["cvssV2"]["baseScore"]
