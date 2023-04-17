@@ -2,4 +2,3 @@ streamlit
 requests
 json
 pandas
-data
